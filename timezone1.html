@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<body>
+    <center>
+        <h1>Convert Into Timezone.</h1>
+        <hr>
+        Enter Time:
+        <div><input type="time"></div><br>
+        Enter Date:
+        <div><input type="date"></div><br>
+        <div>
+            <select id="country" onchange="calcTime();">
+                <option>Select Time</option>
+                <option>Algeria</option>
+                <option>Australia</option>
+                <option>Afganistan</option>
+
+            </select>
+        </div><br>
+
+    </center>
+    <script>
+        function calcTime() {
+            var offset;
+            var value = country.value;
+
+            if (value == "Algeria") {
+
+                console.log("test");
+
+                var d = new Date();
+                var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+                offset = 5.5;
+                var nd = new Date(utc + (3600000 * offset));
+
+                console.log("Local Time " + value + " is " + nd.toLocaleString());
+                console.log(offset);
+            }
+            else if (value == "Afganistan") {
+                var d = new Date();
+                var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+                offset = 4.5;
+                var nd = new Date(utc + (3600000 * offset));
+
+                console.log("Local Time " + value + " is " + nd.toLocaleString());
+                console.log(offset);
+            }
+            else {
+                var d = new Date();
+                var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+                offset = 10.5;
+                var nd = new Date(utc + (3600000 * offset));
+
+                console.log("Local Time " + value + " is " + nd.toLocaleString());
+                console.log(offset);
+
+            }
+        }
+
+
+
+    </script>
+</body>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<body>
+    <center>
+        <h1>Convert Into Timezone.</h1>
+        <hr>
+        <div><input type="time" placeholder="Enter Current Time"></div><br>
+        <div>
+            <select id="country">
+                <option>Select Time</option>
+                <option>Algeria</option>
+                <option>Australia</option>
+                <option>France</option>
+            </select>
+        </div><br>
+        <div><input type="text" id="txtvalue"></div><br>
+        <div><button type="button" onclick="ddselect(ddisplay.toString(),'+1');">Go</button></div>
+    </center>
+    <script>
+        function ddselect(city,offset) {
+            var d = document.getElementById("country");
+            var ddisplay = d.options[d.selectedIndex].text;
+
+
+
+            var d = new Date();
+            var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
+            var nd = new Date(utc + (3600000 * offset));
+            return "The Local Time Of " + city + " is " + nd.toLocaleString();
+            // document.getElementById("txtvalue").value=;
+
+
+
+
+            // function calcTime(city, offset) {
+            //     var d = new Date();
+            //     var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
+            //     var nd = new Date(utc + (3600000 * offset));
+                //  return "The Local Time Of " + city + " is " + nd.toLocaleString();
+            }
+       // }
+
+        //    var element = document.getElementById("country");
+          console.log (ddselect(ddisplay.toString(),"+1"));
+
+        // console.log(calcTime("Algeria", "+1"));
+        // console.log(calcTime("Australia", "+10.3"));
+    </script>
+</body>
